@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://wa3rmxgi2i53"]
+
+[ext_resource type="Texture2D" uid="uid://dyd55ytl5ms00" path="res://maintexture.tres" id="1_3hv6x"]
+[ext_resource type="Script" uid="uid://bjpqoy6im8r26" path="res://spore.gd" id="2_e1fmx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk511"]
+radius = 31.58
+
+[node name="Spore" type="Sprite2D" unique_id=548603632 node_paths=PackedStringArray("collision_area") groups=["spore"]]
+texture = ExtResource("1_3hv6x")
+script = ExtResource("2_e1fmx")
+max_spread = 4.21
+collision_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1898552942]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1374451140]
+shape = SubResource("CircleShape2D_hk511")

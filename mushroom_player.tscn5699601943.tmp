@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d2pav1dwen43u"]
+
+[ext_resource type="Script" uid="uid://bs1mgmclbxct3" path="res://mushroom_player.gd" id="1_0f0pf"]
+[ext_resource type="Texture2D" uid="uid://c3xsvn2inysf6" path="res://texture.tres" id="2_m2y8f"]
+[ext_resource type="Texture2D" uid="uid://cc8r63uxu0uvs" path="res://icon.svg" id="3_m2y8f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk511"]
+radius = 167.85
+
+[node name="MushroomPlayer" type="CharacterBody2D" unique_id=306604608 node_paths=PackedStringArray("blob_body", "indicator")]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_0f0pf")
+blob_body = NodePath("Body")
+indicator = NodePath("Body/Indicator")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1342392791]
+shape = SubResource("CircleShape2D_hk511")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=7760679]
+scale = Vector2(1.775, 1.775)
+texture = ExtResource("2_m2y8f")
+
+[node name="Indicator" type="Sprite2D" parent="Body" unique_id=730119503]
+position = Vector2(6.760564, -103.66197)
+scale = Vector2(0.321, 1)
+texture = ExtResource("3_m2y8f")

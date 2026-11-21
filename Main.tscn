@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://0a1ussr2v6ll"]
+
+[ext_resource type="PackedScene" uid="uid://d2pav1dwen43u" path="res://mushroom_player.tscn" id="1_uu6xs"]
+[ext_resource type="Material" uid="uid://dwdhhskg4xigy" path="res://testshader.tres" id="2_r0du0"]
+
+[sub_resource type="ViewportTexture" id="4"]
+viewport_path = NodePath("Viewport")
+
+[node name="Main" type="Node2D" unique_id=695494621]
+
+[node name="Viewport" type="SubViewport" parent="." unique_id=684620882]
+disable_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(1280, 720)
+
+[node name="MushroomPlayer" parent="Viewport" unique_id=306604608 instance=ExtResource("1_uu6xs")]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=252216426]
+material = ExtResource("2_r0du0")
+position = Vector2(640, 360)
+texture = SubResource("4")

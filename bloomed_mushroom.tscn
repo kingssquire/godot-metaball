@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bbci3b84hmst4"]
+
+[ext_resource type="Texture2D" uid="uid://c0rnq5bhrj3ny" path="res://Mushroom-PNG-3874996000.png" id="1_knnuj"]
+[ext_resource type="Texture2D" uid="uid://c3xsvn2inysf6" path="res://texture.tres" id="2_xdx1u"]
+
+[sub_resource type="Curve" id="Curve_e1fmx"]
+_data = [Vector2(0.042372875, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.18584073), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MushroomPng3874996000" type="Sprite2D" unique_id=1152812717]
+z_index = 20
+z_as_relative = false
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("1_knnuj")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=509091349]
+scale = Vector2(1.195, 1.195)
+amount = 7
+texture = ExtResource("2_xdx1u")
+lifetime = 0.39
+speed_scale = 0.02
+explosiveness = 0.11
+randomness = 0.13
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -502.85
+angular_velocity_max = 494.98
+linear_accel_min = 15.08
+linear_accel_max = 71.43
+scale_amount_min = 0.3
+scale_amount_curve = SubResource("Curve_e1fmx")

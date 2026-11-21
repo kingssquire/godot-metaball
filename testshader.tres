@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dwdhhskg4xigy"]
+
+[ext_resource type="Shader" uid="uid://d2f7vpve67asd" path="res://2d-metaball.gdshader" id="1_krumc"]
+
+[resource]
+shader = ExtResource("1_krumc")
+shader_parameter/albedo_color = Color(0.7525732, 0.6856447, 0.49594477, 1)

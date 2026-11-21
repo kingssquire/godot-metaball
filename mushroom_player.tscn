@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d2pav1dwen43u"]
+
+[ext_resource type="Script" uid="uid://bs1mgmclbxct3" path="res://mushroom_player.gd" id="1_0f0pf"]
+[ext_resource type="PackedScene" uid="uid://wa3rmxgi2i53" path="res://spore.tscn" id="2_c0h2k"]
+[ext_resource type="Texture2D" uid="uid://dyd55ytl5ms00" path="res://maintexture.tres" id="3_m2y8f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk511"]
+radius = 32.9
+
+[node name="MushroomPlayer" type="Area2D" unique_id=1764260321 node_paths=PackedStringArray("blob_body")]
+script = ExtResource("1_0f0pf")
+blob_body = NodePath("Body")
+spore_scene = ExtResource("2_c0h2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1342392791]
+shape = SubResource("CircleShape2D_hk511")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=7760679]
+texture = ExtResource("3_m2y8f")

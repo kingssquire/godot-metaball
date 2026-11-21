@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://clyy21ye83wxa"]
+
+[ext_resource type="Script" uid="uid://6mw3jmyb26ow" path="res://game_script.gd" id="1_u44n3"]
+[ext_resource type="PackedScene" uid="uid://bbci3b84hmst4" path="res://bloomed_mushroom.tscn" id="2_sb48q"]
+[ext_resource type="PackedScene" uid="uid://d2pav1dwen43u" path="res://mushroom_player.tscn" id="2_u44n3"]
+[ext_resource type="Material" uid="uid://dwdhhskg4xigy" path="res://testshader.tres" id="3_sb48q"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4xqv3"]
+viewport_path = NodePath("Sprite2D/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sb48q"]
+viewport_path = NodePath("Sprite2D2/SubViewport")
+
+[node name="Game" type="Node2D" unique_id=672895414]
+script = ExtResource("1_u44n3")
+mushroom_bloom = ExtResource("2_sb48q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2017836350]
+z_index = -1
+z_as_relative = false
+material = ExtResource("3_sb48q")
+texture = SubResource("ViewportTexture_4xqv3")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite2D" unique_id=196127615 groups=["world"]]
+transparent_bg = true
+size = Vector2i(2000, 2000)
+
+[node name="MushroomPlayer" parent="Sprite2D/SubViewport" unique_id=306604608 instance=ExtResource("2_u44n3")]
+position = Vector2(1000, 1000)
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=383256386]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1558996226]
+z_index = 1
+z_as_relative = false
+texture = SubResource("ViewportTexture_sb48q")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite2D2" unique_id=1402910784 groups=["topworld"]]
+transparent_bg = true
+size = Vector2i(2000, 2000)
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D2" unique_id=757648196]
