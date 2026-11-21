@@ -18,6 +18,7 @@ var held_timer : float = 0.0
 var max_spore_cooldown : float = .8
 var spore_cooldown : float = 0.0
 
+var areas_entered : Array[String]
 
 @export var blob_body : Sprite2D
 @export var spore_scene : PackedScene
@@ -39,8 +40,7 @@ func _process(delta: float) -> void:
 	if direction == Vector2.ZERO:
 		scale = Vector2.ONE
 		if target_position and (position - target_position).length() != 0.0 :
-			boost = 0.0
-			if spore_cooldown <= 0.0:
+			if spore_cooldown <= 0.0 and boost == 0.0:
 				spore_cooldown = max_spore_cooldown
 				add_spore()
 	else:
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		last_position = Vector2.ZERO
 		var wanted_position
 		if boost != 0.0:
-			wanted_position = position + ((last_direction * max_dist) * boost)
+			wanted_position = position + ((last_direction * max_dist) * (boost * 2))
 		else:
 			wanted_position = position + (last_direction * max_dist)
 		target_position = position.move_toward(wanted_position , held_timer)
@@ -74,6 +74,12 @@ func _physics_process(delta: float) -> void:
 	if not direction:
 		if not last_position:
 			last_position = position
-		position = position.lerp(target_position, delta)
+		var boosted_time
+		if boost != 0.0:
+			boosted_time = delta * boost
+		else:
+			boosted_time = delta
+		position = position.lerp(target_position, boosted_time)
+		
 		position.x = clamp(position.x, 600, 1600)
 		position.y = clamp(position.y, 800, 1200)

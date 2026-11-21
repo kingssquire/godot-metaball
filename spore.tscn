@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://wa3rmxgi2i53"]
 
-[ext_resource type="Texture2D" uid="uid://dyd55ytl5ms00" path="res://maintexture.tres" id="1_3hv6x"]
 [ext_resource type="Script" uid="uid://bjpqoy6im8r26" path="res://spore.gd" id="2_e1fmx"]
 
+[sub_resource type="Gradient" id="Gradient_g2xo4"]
+offsets = PackedFloat32Array(0.03125, 0.93990386)
+colors = PackedColorArray(1, 0.627451, 0.25490198, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g2xo4"]
+gradient = SubResource("Gradient_g2xo4")
+width = 30
+height = 30
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hk511"]
-radius = 31.58
+radius = 6.67
 
 [node name="Spore" type="Sprite2D" unique_id=548603632 node_paths=PackedStringArray("collision_area") groups=["spore"]]
-texture = ExtResource("1_3hv6x")
+texture = SubResource("GradientTexture2D_g2xo4")
 script = ExtResource("2_e1fmx")
 max_spread = 4.21
 collision_area = NodePath("Area2D")

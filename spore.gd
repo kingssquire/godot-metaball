@@ -9,7 +9,7 @@ var time_scale : float = .8
 
 var mushroom_bloomed : bool = false
 
-
+var current_entered : PLAYER 
 func _ready() -> void:
 	if not collision_area:
 		return
@@ -17,9 +17,22 @@ func _ready() -> void:
 	collision_area.area_entered.connect(func(area):
 		if not area is PLAYER:
 			return
-		area.boost += scale.x 
-		
+		area.boost = scale.x * 3
+		if not area.areas_entered.has(name):
+			area.areas_entered.append(name)
 		)
+	collision_area.area_exited.connect(func(area):
+		if not area is PLAYER:
+			return
+		var array : Array = area.areas_entered
+		if array.has(name):
+			array.erase(name)
+			
+		
+		if array.size() <= 0.0:
+			area.boost = 0.0
+		)
+		
 
 
 #rework this sometime

@@ -26,6 +26,8 @@ transparent_bg = true
 size = Vector2i(2000, 2000)
 
 [node name="MushroomPlayer" parent="Sprite2D/SubViewport" unique_id=306604608 instance=ExtResource("2_u44n3")]
+z_index = 30
+z_as_relative = false
 position = Vector2(1000, 1000)
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=383256386]

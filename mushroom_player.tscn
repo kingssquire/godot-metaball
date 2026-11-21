@@ -2,10 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bs1mgmclbxct3" path="res://mushroom_player.gd" id="1_0f0pf"]
 [ext_resource type="PackedScene" uid="uid://wa3rmxgi2i53" path="res://spore.tscn" id="2_c0h2k"]
-[ext_resource type="Texture2D" uid="uid://dyd55ytl5ms00" path="res://maintexture.tres" id="3_m2y8f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hk511"]
 radius = 32.9
+
+[sub_resource type="Gradient" id="Gradient_0f0pf"]
+offsets = PackedFloat32Array(0.24759616, 0.4158654, 0.80528843)
+colors = PackedColorArray(2.5655398, 2.0463223, 0.65771675, 1, 2.5713813, 2.1320646, 0.3747981, 0.5294118, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0f0pf"]
+gradient = SubResource("Gradient_0f0pf")
+width = 30
+height = 30
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="MushroomPlayer" type="Area2D" unique_id=1764260321 node_paths=PackedStringArray("blob_body")]
 script = ExtResource("1_0f0pf")
@@ -16,4 +27,4 @@ spore_scene = ExtResource("2_c0h2k")
 shape = SubResource("CircleShape2D_hk511")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=7760679]
-texture = ExtResource("3_m2y8f")
+texture = SubResource("GradientTexture2D_0f0pf")
